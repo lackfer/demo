@@ -135,10 +135,14 @@ jQuery(document).ready(function($) {
                             var title = data.feed.entry[i].title.$t;
                             ric += '<a id="radn-icon" href="' + url + '" title="' + title + '"></a>'
                         }
-                        $('#random-icon').html(ric);
+                        if (document.URL.split('?')[1]=='random'){
+                            window.location.href=url
+                        }else{
+                            $('#random-icon').html(ric);
                         $('#radn-icon').tipsy({
                             gravity: 'n'
                         })
+                    }
                     }
                 })
             }
